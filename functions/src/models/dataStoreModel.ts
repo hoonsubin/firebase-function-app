@@ -1,6 +1,8 @@
+import { DocumentReference } from '@google-cloud/firestore';
+
 /**
  * Base interface for all objects that are storable
  */
-export interface IStorableBase {
+export interface IRefStorable extends DocumentReference {
     id: string;
 }

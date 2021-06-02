@@ -1,10 +1,10 @@
-import { IStorableBase } from './dataStoreModel';
+import { IRefStorable } from './dataStoreModel';
 
 export interface RequestPayload<T> {
     body: T;
 }
 
-export interface Request<T extends IStorableBase> extends RequestPayload<T> {
+export interface Request<T extends IRefStorable> extends RequestPayload<T> {
     params: { [key: string]: string };
 }
 
