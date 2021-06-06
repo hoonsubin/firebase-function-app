@@ -8,7 +8,7 @@ const app = express();
 app.get('/', (req, res) => res.status(200).send('<h1>Hello World!</h1>'));
 
 app.post('/user', addUser);
-app.get('/user', getAllUsers);
+app.get('/users', getAllUsers);
 app.patch('/user/:id', updateUser);
 app.delete('/user/:id', deleteUser);
 

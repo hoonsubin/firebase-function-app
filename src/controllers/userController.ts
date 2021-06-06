@@ -29,14 +29,14 @@ export const addUser = async (req: Request<User>, res: Response) => {
     }
 };
 
-export const getAllUsers = async (req: Request<User>, res: Response) => {
+export const getAllUsers = async (req: Request<{ startIndex: number; endIndex: number }>, res: Response) => {
     try {
-        const allUsers: User[] = [];
+        const fetchedUsers: User[] = [];
         const querySnapshot = await db.collection(COLLECTION_PATH).get();
 
-        querySnapshot.forEach((doc) => allUsers.push(doc.data() as User));
+        querySnapshot.forEach((doc) => fetchedUsers.push(doc.data() as User));
 
-        return res.status(ResponseStatus.Success).json(allUsers);
+        return res.status(ResponseStatus.Success).json(fetchedUsers);
     } catch (err) {
         return res.status(ResponseStatus.InternalError).json(err.message);
     }
