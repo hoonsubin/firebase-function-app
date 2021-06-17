@@ -66,3 +66,8 @@ node_modules/
 .env
 
 .DS_Store
+
+# Firebase Service Account credentials
+service-account.json
+
+lib/
